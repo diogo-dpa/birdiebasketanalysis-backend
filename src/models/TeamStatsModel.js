@@ -1,10 +1,13 @@
 const connection = require("../database/connection");
 
 module.exports = {
-    getAll(){
+    getTeamStatsById(team_id){
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await connection("team_stats").select("*");
+                const response = await connection("team_stats").select("*")
+                .where({
+                    team_id,
+                });
                 resolve(response);
             } catch (error) {
                 console.log(error);

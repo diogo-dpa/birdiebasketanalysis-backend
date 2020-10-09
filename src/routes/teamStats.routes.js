@@ -4,6 +4,6 @@ const teamStatsRouter = express.Router();
 const TeamStatsController = require('../controllers/TeamStatsController');
 
 // Para Estatística do Time
-teamStatsRouter.get('/', TeamStatsController.index);
+teamStatsRouter.get('/:team_id', TeamStatsController.getTeamStats);
 
 module.exports = teamStatsRouter;
