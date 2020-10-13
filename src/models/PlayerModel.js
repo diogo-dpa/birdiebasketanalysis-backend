@@ -13,6 +13,21 @@ module.exports = {
         });
     },
 
+    getOne(player_id){
+        return new Promise(async (resolve, reject) => {
+            try {
+                const response = await connection("players").select("*")
+                .where({
+                    player_id,
+                });
+                resolve(response);
+            } catch (error) {
+                console.log(error);
+                reject(error);
+            }
+        });
+    },
+
     getPlayerById(player_id){
         return new Promise(async (resolve, reject) => {
             try {
